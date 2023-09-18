@@ -3,6 +3,7 @@ package org.demoqa.pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -43,5 +44,10 @@ public class BasePage {
         var submitButton = driver.findElement(locator);
         var executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", submitButton);
+    }
+    protected void selectOptionInDropdown(By dropdownLocator, String option) {
+        WebElement dropdown = driver.findElement(dropdownLocator);
+        Select dropdownOptions = new Select(dropdown);
+        dropdownOptions.selectByVisibleText(option);
     }
 }

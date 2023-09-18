@@ -1,6 +1,9 @@
 package org.demoqa.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.demoqa.pages.RegistrationPage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -57,6 +60,8 @@ public class RegistrationTests {
     }
 
     @Test
+    @Story("User submits registration form successfully")
+    @Severity(SeverityLevel.NORMAL)
     public void testRegistration() {
         driver.get(urlRegistrationPage);
         //Arrange
